@@ -1,0 +1,30 @@
+<h1>Users</h1>
+{{#each users}}
+<div class="vacation">
+<h3>Username {{uname}}</h3>
+<form action="/deleteUser" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="content" id="content" value={{_id}}>
+<input type="submit" value="Delete" />
+</form>
+<form action="/ban" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="content" id="content" value={{_id}}>
+<input type="submit" value="Ban" />
+</form>
+<form action="/unban" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="content" id="content" value={{_id}}>
+<input type="submit" value="Unban" />
+</form>
+{{/each}}
+
+<h1>Create Users</h1>
+
+<form action="/createUser" method="post" enctype="application/x-www-form-urlencoded">
+<label for="userName">Username:</label>
+<input type="text" name="userName" id="userName" size="30" maxlength="40" />
+<label for="password">Password:</label>
+<input type="text" name="password" id="password" size="30" maxlength="40" />
+<input type="submit" value="Create User" />
+</form>
+
+	
+	

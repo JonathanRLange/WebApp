@@ -1,0 +1,24 @@
+
+{{#if admin}}
+   <div class="menu">
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="commonBoard">Common Board</a></div>
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="userPosts">My Posts</a></div>
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="settings">Settings</a></div>  
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="users">Users</a></div>
+    <form action="/logOut" method="post" enctype="application/x-www-form-urlencoded" style="float:left">
+    <input type="submit" value="Log Out" />
+    </form>
+</div>
+
+{{else}}
+   <div class="menu">
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="commonBoard">Common Board</a></div>
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="userPosts">My Posts</a></div>
+    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="settings">Settings</a></div>
+    <form action="/logOut" method="post" enctype="application/x-www-form-urlencoded" style="float:left">
+    <input type="submit" value="Log Out" />
+    </form>
+{{/if}}
+<br>
+<br>
+<br>

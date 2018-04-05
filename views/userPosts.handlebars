@@ -1,0 +1,16 @@
+
+<h1>User Posts</h1>
+<h1>Messages</h1>
+{{#each messages}}
+<div class="vacation">
+<h3>{{poster}}</h3>
+<p>{{messageContent}}</p>
+<p>{{date}}</p>
+<form action="/deleteMessage" method="post" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="content" id="content" value={{_id}}>
+<input type="submit" value="Delete" />
+</form>
+{{/each}}
+
+	
+	
