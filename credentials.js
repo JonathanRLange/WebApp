@@ -1,11 +1,15 @@
+const {db_user,
+    db_pass
+} = process.env
+
 module.exports = {
     cookieSecret: 'needsburstfifteensecret',
     mongo: {
         development: {
-        connectionString: 'mongodb://127.0.0.1:20012/assignment3db',
+        connectionString: 'mongodb://${db_user}:${db_pass}@ds019796.mlab.com:19796/jonsdb',
         },
         production: {
-        connectionString: 'mongodb://127.0.0.1:20012/assignment3db',
+        connectionString: 'mongodb://${db_user}:${db_pass}@ds019796.mlab.com:19796/jonsdb',
         },
         },
     };
