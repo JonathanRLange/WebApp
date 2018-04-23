@@ -26,12 +26,16 @@ var http = require('http'),
         socketOptions: { keepAlive: 1 }
         }
     };
+    const {env,
+        db_user,
+        db_pass
+    } = process.env
     console.log(
-        app.get('env'),
-        app.get('db_user'),
-        app.get('db_pass')
+        env,
+        db_user,
+        db_pass
     )
-    switch(app.get('env')){
+    switch(env){
         case 'development':
         mongoose.connect(credentials.mongo.development.connectionString, opts);
         break;
@@ -39,7 +43,7 @@ var http = require('http'),
         mongoose.connect(credentials.mongo.production.connectionString, opts);
         break;
         default:
-        throw new Error('Unknown execution environment: ' + app.get('env'));
+        throw new Error('Unknown execution environment: ' + env);
     }
     const db = mongoose.connection
     User.find(function(err, Users){
@@ -292,8 +296,10 @@ var http = require('http'),
 
     db
     .on('error', function( err ){ console.log(err) } )
-    .once( 'open', function(){ console.log( 'database connected' ) } )
-    app.listen(app.get('port'), function(){
-    console.log( 'Express started on http://localhost:' +
-    app.get('port') + '; press Ctrl-C to terminate.' );
-    });
+    .once( 'open', function(){ 
+        console.log( 'database connected' ) 
+        app.listen(app.get('port'), function(){
+            console.log( 'Express started on http://localhost:' +
+            app.get('port') + '; press Ctrl-C to terminate.' );
+        });
+    } )
