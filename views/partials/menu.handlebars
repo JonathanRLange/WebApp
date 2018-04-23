@@ -1,24 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-{{#if admin}}
-   <div class="menu">
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="commonBoard">Common Board</a></div>
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="userPosts">My Posts</a></div>
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="settings">Settings</a></div>  
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="users">Users</a></div>
-    <form action="/logOut" method="post" enctype="application/x-www-form-urlencoded" style="float:left">
-    <input type="submit" value="Log Out" />
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="commonBoard">Common Board</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="userPosts">My Posts</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="settings">Settings</a>
+      </li>
+      {{#if admin}}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="users">Users</a>
+        </div>
+      </li>
+      {{/if}}
+    </ul>
+    <form class="form-inline" action="/logOut" method="post" enctype="application/x-www-form-urlencoded" style="float:left">
+      <input class="btn btn-outline-success" type="submit" value="Log Out" />
     </form>
-</div>
-
-{{else}}
-   <div class="menu">
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="commonBoard">Common Board</a></div>
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="userPosts">My Posts</a></div>
-    <div style="background-color:yellow;height:50px;width:100px;float:left;border-style: solid;border-width: 5px;"><a href="settings">Settings</a></div>
-    <form action="/logOut" method="post" enctype="application/x-www-form-urlencoded" style="float:left">
-    <input type="submit" value="Log Out" />
-    </form>
-{{/if}}
-<br>
-<br>
-<br>
+  </div>
+</nav>
